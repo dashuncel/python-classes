@@ -1,6 +1,19 @@
 # класс животные
 class Animal:
-  pass
+  def __init__(self, sound, size, name, speed):
+    self.sound = sound
+    self.size  = size
+    self.name  = name
+    self.name  = speed
+
+  def getVoice(self):
+    return self.name + ' говорит ' + self.sound
+
+  def __str__(self):
+    return "This is a %s" % (self.name)
+
+  def move(self, coordinates):
+    pass
 
 # летающие 
 class Flying:
