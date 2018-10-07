@@ -1,8 +1,9 @@
 # суперкласс животные
 class Animal:
 
-    def __init__(self, sound, size, name, speed):
-        self.sound = sound
+    sound = ''
+
+    def __init__(self, size, name, speed):
         self.size = size
         self.name = name
         self.speed = speed
@@ -11,7 +12,7 @@ class Animal:
         return self.name + ' говорит ' + self.sound
 
     def __str__(self):
-        return "Знакомьтесь, это %s" % (self.name)
+        return "Знакомьтесь, это %s" % self.name
 
     def move(self, coordinates):
         pass
@@ -21,16 +22,16 @@ class Animal:
 class Flying:
 
     def start_fly(self, height, speed):
-        return '{} взлетает на высоту {} метров со скоростью {} метров \
-                в минуту'.format(self.name, height, speed)
+        return '{} взлетает на высоту {} метров со скоростью {} метров в минуту'.format(self.name, height, speed)
 
 
 # Корова
 class Cow(Animal):
 
     def __init__(self, size, name, speed, milk):
-        super().__init__("mu-mu", size, name, speed)
+        self.sound = "mu-mu"
         self.milk = milk
+        super().__init__(size, name, speed)
 
     def __str__(self):
         return "Это %s, которая дает %s литров молока в день" % \
@@ -45,29 +46,33 @@ class Cow(Animal):
 class Goat(Animal):
 
     def __init__(self, size, name, speed):
-        super().__init__("me-me", size, name, speed)
+        self.sound = "me-me"
+        super().__init__(size, name, speed)
 
 
 # свинья
 class Pig(Animal):
 
     def __init__(self, size, name, speed):
-        super().__init__("hryu-hryu", size, name, speed)
+        self.sound = "hryu-hryu"
+        super().__init__(size, name, speed)
 
 
 # Овца
 class Sheep(Animal):
 
     def __init__(self, size, name, speed):
-        super().__init__("be-be", size, name, speed)
+        self.sound = "be-be"
+        super().__init__(size, name, speed)
 
 
 # курица
 class Hen(Animal):
 
     def __init__(self, size, name, speed, eggs):
-        super().__init__("ko-ko", size, name, speed)
+        self.sound = "ko-ko"
         self.egg = eggs
+        super().__init__(size, name, speed)
 
     def __str__(self):
         return "Это %s, которая несет %s яиц в день" % (self.name, self.egg)
@@ -80,13 +85,15 @@ class Hen(Animal):
 # утка
 class Duck(Animal, Flying):
     def __init__(self, size, name, speed):
-        super().__init__("me-me", size, name, speed)
+        self.sound = "me-me"
+        super().__init__(size, name, speed)
 
 
 # гусь
 class Goose(Animal, Flying):
     def __init__(self, size, name, speed):
-        super().__init__("ga-ga-ga", size, name, speed)
+        self.sound = "ga-ga-ga"
+        super().__init__(size, name, speed)
 
 
 # экземпляры классов:
